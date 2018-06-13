@@ -1,0 +1,6 @@
+баг с миграциями:
+исправил в конфиге кодировку database.php
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+
+https://www.youtube.com/watch?v=R-oH8iTAhVc
