@@ -17,10 +17,7 @@ Route::get('/', function () {
     return view('index', compact('events'));
 });
 
-Route::get('/event/{id}', function ($id) {
+Route::get('event/{id}', function ($id) {
 	$event = DB::table('events')->find($id);
-
-	dd($event);
-	
-   // return view('events');
+	return view('events.show', compact('event'));
 }); 
