@@ -15,4 +15,7 @@ Route::get('/', 'EventController@index');
 
 Route::get('event/{event}', 'EventController@show');
 
+//admin
+
+Route::get('admin/', 'Admin\AccountController@index');
  
