@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-	$events = DB::table('events')->get();
+Route::get('/', 'EventController@index');
 
-    return view('index', compact('events'));
-});
+Route::get('event/{event}', 'EventController@show');
 
-Route::get('event/{id}', function ($id) {
-	$event = DB::table('events')->find($id);
-	return view('events.show', compact('event'));
-}); 
+ 

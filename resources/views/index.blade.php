@@ -14,7 +14,7 @@
               <p>{{$event->details}}</p>
 
               <!--сделать правильные ссылки-->
-              <p><a href="http://localhost:8888/laratest/public/event/{{$event->id}}" class="btn btn-primary">More</a></p>
+              <p><a href="http://localhost:8888/laratest/public/event/{{$event->alias}}" class="btn btn-primary">More</a></p>
       </div>
             </div>
           </div>

@@ -4,3 +4,6 @@
             'collation' => 'utf8_unicode_ci',
 
 https://www.youtube.com/watch?v=R-oH8iTAhVc
+
+обновление миграций и сидов
+	php artisan migrate:refresh --seed
