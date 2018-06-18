@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class AdminController extends Controller
 {
@@ -21,8 +22,31 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
+
+
+/**
+ * Показать все записи.
+ */
+    public function index(){
+        //$events = DB::table('events')->get();
+        $events = Event::all();
+        return view('admin', compact('events'));
+        //dd($request);
     }
+
+/**
+ * Удалить запись.
+ */
+
+     public function destroy($id){
+
+        $event = Event::findOrFail($id);
+
+        $event->delete($id);
+
+        return redirect()->route('admin');
+     }
+
+
+
 }

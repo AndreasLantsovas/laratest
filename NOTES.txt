@@ -11,3 +11,6 @@ https://www.youtube.com/watch?v=R-oH8iTAhVc
 при слонирование проекта из .env проекта пропал app.key. Необходимо 
 	php artisan key:generate
 	php artisan config:clear
+
+просмотр маршрутов
+	php artisan route:list

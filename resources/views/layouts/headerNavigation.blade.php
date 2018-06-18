@@ -5,7 +5,7 @@
     Home
     </a>
 
-    <a href={{URL::action('AdminController@index')}}>Login</a>
+    <a  href={{URL::action('AdminController@index')}} class="btn btn-info">Admin</a>
    
     <!-- Navbar content -->
   </nav>
