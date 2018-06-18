@@ -73,10 +73,11 @@ class AdminController extends Controller
 /**
  * форма для добавления запись.
  */
-    public function edit()
+    public function edit($id)
      {
-        echo "EDIT";
-        return view('create');
+        //echo "EDIT";
+        $events = Event::find($id);
+        return view('edit',compact('events','id'));
      }
 }
 
