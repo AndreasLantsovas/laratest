@@ -31,6 +31,9 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -53,6 +56,9 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{URL::action('AdminController@create')}}">New event</a>
+
+
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -70,6 +76,19 @@
                 </div>
             </div>
         </nav>
+
+
+<!--         <div class="container">
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <a href="{{URL::action('AdminController@create')}}" class="btn btn-success btn-sm">New event</a>
+                        </div>
+                    </div> 
+            </div>
+        </div>   -->
+
+                   
 
         @yield('content')
     </div>

@@ -23,16 +23,15 @@ Route::get('event/{event}', 'EventController@show');
 
 Auth::routes();
 
-//Route::get('admin/', 'Admin\AccountController@index')-> name('admin');
-
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
-//Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::get('admin', 'AdminController@index')->name('admin')->middleware('auth');
 
-Route::get('delete/{event}', 'AdminController@destroy')->middleware('auth');
+Route::get('admin/{event}/delete', 'AdminController@destroy')->middleware('auth');
+
+Route::get('admin/create', 'AdminController@create')->name('create');
+Route::post('admin/create', 'AdminController@store')->name('store');
+
+Route::get('admin/{event}/edit', 'AdminController@edit');
 //Route::post('delete', 'AdminController@destroy');
 
 //destroy($id)

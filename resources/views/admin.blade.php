@@ -1,10 +1,21 @@
 @extends('layouts.app')
 
+
+
 @section('content')
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            @if (\Session::has('success'))
+                  <div class="alert alert-success">
+                    <p>{{ \Session::get('success') }}</p>
+                  </div><br />
+            @endif
+        </div>
+    </div>
+
+    <div class="row">
         @foreach ($events as $event)
-      
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
@@ -13,7 +24,7 @@
                         <p>{{$event->details}}</p>
                         <p>
                             <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-primary btn-sm">More</a>
-                            <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-success btn-sm">Edit</a>
+                            <a href="{{URL::action('AdminController@edit', $event->id)}}" class="btn btn-success btn-sm">Edit</a>
                             <a href="{{URL::action('AdminController@destroy', $event->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </p>
                     </div>
