@@ -10,10 +10,10 @@
 
                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
-                <div class="form-group">
+<!--                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Event name</label>
                     <textarea name="name" class="form-control"  rows="1" value="{{$events->id}}"></textarea>
-                  </div>
+                  </div> -->
 
 <!--                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Start at</label>
@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Details</label>
-                    <textarea name="details" class="form-control" rows="4" >{{$events->details}}</textarea>
+                    <textarea name="details" class="form-control" rows="6" >{{$events->details}}</textarea>
                 </div>
 
 
