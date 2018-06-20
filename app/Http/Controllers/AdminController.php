@@ -77,8 +77,37 @@ class AdminController extends Controller
      {
         //echo "EDIT";
         $events = Event::find($id);
-        return view('edit',compact('events','id'));
+        return view('edit',compact('events'));
      }
+
+    public function update(Request $request)
+     {
+        //echo $request['id'];
+
+        $EventUpdate = Event::find($request['id']);
+
+        $EventUpdate->name = $request->input('name');
+        $EventUpdate->details = $request->input('details');
+        $EventUpdate->start_date = $request->input('start_date');
+        $EventUpdate->end_date = $request->input('start_date');
+        $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')));
+        $EventUpdate->save();
+         //echo $rows['name'];
+
+        //$url = $request->input('start_date');
+        // $url2 = $request->url();
+
+        //echo ($url);
+        return redirect('admin')->with('success', 'Information has been edited');
+
+        
+    //    return redirect('admin')->with('success', 'Information has been added');
+     }
+
+
+
+
+
 }
 
 

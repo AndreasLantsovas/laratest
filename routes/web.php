@@ -32,6 +32,6 @@ Route::get('admin/create', 'AdminController@create')->name('create');
 Route::post('admin/create', 'AdminController@store')->name('store');
 
 Route::get('admin/{event}/edit', 'AdminController@edit');
-//Route::post('delete', 'AdminController@destroy');
+Route::post('admin/update', 'AdminController@update')->name('update');
 
 //destroy($id)
