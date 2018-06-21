@@ -10,31 +10,6 @@
 
                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
-<!--                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Event name</label>
-                    <textarea name="name" class="form-control"  rows="1" value="{{$events->id}}"></textarea>
-                  </div> -->
-
-<!--                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Start at</label>
-                    <textarea name="start_date" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
-                </div> -->
-
-
-
-
-
-
-
-<!-- 
-                <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label" for="customFile">Choose file</label>
-                </div> -->
-
-
-
-
                 <div class="form-group">
                     <label for="validationCustom05">Id {{$events->id}}</label>
                         <input type="hidden" name="id" class="form-control" placeholder="Zip" value="{{$events->id}}">
@@ -56,6 +31,19 @@
                 </div>
 
 
+
+                <div class="form-check">
+
+
+                   @if ($events->published === 0)
+                      <input type="checkbox" class="form-check-input"  name="published" value="0" >
+                   @else
+                      <input type="checkbox" class="form-check-input"  name="published" value="1" checked>
+                   @endif
+
+                   <label class="form-check-label">Publish</label>
+
+                </div>
 
 
               <button type="submit" class="btn btn-primary">Save</button>

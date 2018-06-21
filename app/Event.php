@@ -12,4 +12,12 @@ class Event extends Model
 	public function getRouteKeyName(){
 		return 'alias';
 	}
+
+
+
+	public function scopePublished($query){
+
+		$query->where('published', 1);
+        
+    }
 }

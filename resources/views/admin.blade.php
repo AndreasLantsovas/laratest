@@ -3,7 +3,21 @@
 
 
 @section('content')
+
 <div class="container">
+
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="{{URL::action('AdminController@index')}}">All</a>
+        <a class="navbar-brand" href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
+      </nav>
+    </div>
+  </div>
+
+
+
+
     <div class="row">
         <div class="col-md-12">
             @if (\Session::has('success'))
@@ -13,6 +27,7 @@
             @endif
         </div>
     </div>
+
 
     <div class="row">
         @foreach ($events as $event)

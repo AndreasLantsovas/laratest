@@ -34,4 +34,6 @@ Route::post('admin/create', 'AdminController@store')->name('store');
 Route::get('admin/{event}/edit', 'AdminController@edit');
 Route::post('admin/update', 'AdminController@update')->name('update');
 
+Route::get('admin/pablished', 'AdminController@ShowPublished');
+
 //destroy($id)

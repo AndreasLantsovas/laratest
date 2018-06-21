@@ -34,6 +34,13 @@ class AdminController extends Controller
         //dd($request);
     }
 
+
+    public function ShowPublished(){
+        $events = Event::published()->get();
+        return view('admin', compact('events'));
+
+    }
+
 /**
  * Удалить запись.
  */
@@ -71,7 +78,7 @@ class AdminController extends Controller
      }
 
 /**
- * форма для добавления запись.
+ * форма для редактирования запись.
  */
     public function edit($id)
      {
@@ -90,14 +97,20 @@ class AdminController extends Controller
         $EventUpdate->details = $request->input('details');
         $EventUpdate->start_date = $request->input('start_date');
         $EventUpdate->end_date = $request->input('start_date');
+        $EventUpdate->published = $request->input('published');
         $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')));
-        $EventUpdate->save();
-         //echo $rows['name'];
+        
+        if ($EventUpdate->published === null) {
+            $EventUpdate->published = 0;
+        }
+        else {
+            $EventUpdate->published = 1;
+        }
 
-        //$url = $request->input('start_date');
-        // $url2 = $request->url();
+        $EventUpdate->save();       
 
-        //echo ($url);
+     //   dd($EventUpdate);
+
         return redirect('admin')->with('success', 'Information has been edited');
 
         
