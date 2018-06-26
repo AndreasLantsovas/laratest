@@ -74,7 +74,9 @@ class AdminController extends Controller
  */
     public function create()
      {
-        return view('create');
+        $events = new Event;
+        $events->published = 0;
+        return view('create', compact('events'));
      }
 
 /**

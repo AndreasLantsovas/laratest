@@ -8,7 +8,7 @@
 
   <div class="row">
     <div class="col-md-12">
-      <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <nav class="navbar navbar-light bg-primary" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="{{URL::action('AdminController@index')}}">All</a>
         <a class="navbar-brand" href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
       </nav>
@@ -16,17 +16,9 @@
   </div>
 
 
+@include(errors.list')
 
 
-    <div class="row">
-        <div class="col-md-12">
-            @if (\Session::has('success'))
-                  <div class="alert alert-success">
-                    <p>{{ \Session::get('success') }}</p>
-                  </div><br />
-            @endif
-        </div>
-    </div>
 
 
     <div class="row">

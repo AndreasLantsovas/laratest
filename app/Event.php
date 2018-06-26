@@ -17,7 +17,7 @@ class Event extends Model
 
 	public function scopePublished($query){
 
-		$query->where('published', 1);
+		$query->where('published', 1)->orderBy('start_date', 'asc')->get();
         
     }
 }
