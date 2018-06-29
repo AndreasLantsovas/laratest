@@ -20,8 +20,4 @@ class Event extends Model
 		$query->where('published', 1)->orderBy('start_date', 'asc')->get();
         
     }
-
-	public function country (){
-		return $this->belongsTo('App\Countries');
-	}
 }
