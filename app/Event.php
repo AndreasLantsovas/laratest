@@ -21,7 +21,10 @@ class Event extends Model
         
     }
 
-	public function country (){
-		return $this->belongsTo('App\Countries');
-	}
+    public function country (){
+
+    	return $this->belongsTo('App\Country');
+
+    }
+
 }

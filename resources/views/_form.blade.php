@@ -1,3 +1,4 @@
+ 
                 <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
 
                 <div class="form-group">
@@ -14,13 +15,27 @@
                         <input type="text" name="start_date" class="form-control" rows="1" value="{{$events->start_date}}">
                 </div>
 
-                <div class="form-group">
-                    <label >Country</label>
-                        <input type="text" name="country" class="form-control" rows="1" value="">
-                </div>
+
+  <div class="form-group">
+    <label>Country</label>
+    <select class="form-control" name="country_id">
+    <option  selected>Select country</option>
+
+    
+      @foreach ($countries as $country)
+              <option value="{{$country->id}}">{{$country->name}}</option>
+      @endforeach
+
+    </select>
+  </div>
+
+
+
+
+
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Details</label>
+                    <label >Details</label>
                     <textarea name="details" class="form-control" rows="6" >{{$events->details}}</textarea>
                 </div>
 

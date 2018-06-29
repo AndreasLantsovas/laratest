@@ -10,7 +10,7 @@
           <div class="card">
             <div class="card-body">
               <h3 class="card-title">{{$event->name}}</h2>
-              <h6>Start at {{$event->start_date}}</h6>
+              <h6>{{$event->country->name}} | {{$event->start_date}}</h6>
 
               <hr>
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-use App\Countries;
+use App\Country;
 
 class AdminController extends Controller
 {
@@ -64,6 +64,10 @@ class AdminController extends Controller
         $event->end_date = $request->start_date;
         $event->details = $request->details;
         $event->alias = strtolower (str_replace(' ', '-', $request->name));
+        $event->country_id = $request->country_id;
+
+       // dd($event);
+
         $event->save();
 
         // $country = new Countries;
@@ -81,7 +85,14 @@ class AdminController extends Controller
      {
         $events = new Event;
         $events->published = 0;
-        return view('create', compact('events'));
+
+        $countries = Country::all();
+
+//---------------------
+//                dd($countries);
+//---------------------
+
+        return view('create', compact('events', 'countries'));
      }
 
 /**
@@ -91,6 +102,11 @@ class AdminController extends Controller
      {
         //echo "EDIT";
         $events = Event::find($id);
+
+//---------------------
+//                dd($events);
+//---------------------
+
         return view('edit',compact('events'));
      }
 
