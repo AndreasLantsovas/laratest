@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Countries;
 
 class AdminController extends Controller
 {
@@ -64,6 +65,10 @@ class AdminController extends Controller
         $event->details = $request->details;
         $event->alias = strtolower (str_replace(' ', '-', $request->name));
         $event->save();
+
+        $country = new Countries;
+        $country->name = $request->country;
+        $country->save();
         
         return redirect('admin')->with('success', 'Information has been added');
 
