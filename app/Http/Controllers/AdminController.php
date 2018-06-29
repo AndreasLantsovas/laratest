@@ -66,9 +66,9 @@ class AdminController extends Controller
         $event->alias = strtolower (str_replace(' ', '-', $request->name));
         $event->save();
 
-        $country = new Countries;
-        $country->name = $request->country;
-        $country->save();
+        // $country = new Countries;
+        // $country->name = $request->country;
+        // $country->save();
         
         return redirect('admin')->with('success', 'Information has been added');
 
