@@ -16,7 +16,7 @@
   </div>
 
 
-@include(errors.list')
+@include('errors.list')
 
 
 
