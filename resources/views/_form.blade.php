@@ -15,6 +15,11 @@
                 </div>
 
                 <div class="form-group">
+                    <label >Country</label>
+                        <input type="text" name="country" class="form-control" rows="1" value="">
+                </div>
+
+                <div class="form-group">
                     <label for="exampleFormControlTextarea1">Details</label>
                     <textarea name="details" class="form-control" rows="6" >{{$events->details}}</textarea>
                 </div>
