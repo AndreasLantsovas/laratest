@@ -28,7 +28,9 @@
     <option  selected>Select country</option>
 @else
 
-<option  selected>{{$events->country->name}}</option>
+<option value="{{$events->country->id }}" selected>{{$events->country->name}}</option>
+
+
 
 @endif
 
