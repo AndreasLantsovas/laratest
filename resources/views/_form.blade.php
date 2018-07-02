@@ -16,15 +16,29 @@
                 </div>
 
 
+
+
+
   <div class="form-group">
     <label>Country</label>
     <select class="form-control" name="country_id">
+
+
+@if (!$events->country_id)
     <option  selected>Select country</option>
+@else
+
+<option  selected>{{$events->country->name}}</option>
+
+@endif
+
 
     
-      @foreach ($countries as $country)
-              <option value="{{$country->id}}">{{$country->name}}</option>
-      @endforeach
+    @foreach ($countries as $country)
+      <option value="{{$country->id }}">{{$country->name}}</option>
+    @endforeach
+    
+
 
     </select>
   </div>

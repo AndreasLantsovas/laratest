@@ -100,14 +100,13 @@ class AdminController extends Controller
  */
     public function edit($id)
      {
-        //echo "EDIT";
+
+        $countries = Country::all();
         $events = Event::find($id);
 
-//---------------------
-//                dd($events);
-//---------------------
+ //       dd($events);
+        return view('edit',compact('events', 'countries'));
 
-        return view('edit',compact('events'));
      }
 
     public function update(Request $request)
@@ -121,6 +120,7 @@ class AdminController extends Controller
         $EventUpdate->start_date = $request->input('start_date');
         $EventUpdate->end_date = $request->input('start_date');
         $EventUpdate->published = $request->input('published');
+        $EventUpdate->country_id = $request->input('country_id');
         $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')));
         
         if ($EventUpdate->published === null) {

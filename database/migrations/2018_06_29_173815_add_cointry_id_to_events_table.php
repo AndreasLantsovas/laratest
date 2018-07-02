@@ -14,8 +14,9 @@ class AddCointryIdToEventsTable extends Migration
     public function up()
     {
         Schema::table('events',function($table){
-            $table->Integer('country_id')->unsigned();
+        //    $table->Integer('country_id')->unsigned();
             $table->foreign('country_id')->references('id')->on('countries');
+             $table->Integer('country_id')->unsigned();
            
         });
     }
@@ -28,6 +29,7 @@ class AddCointryIdToEventsTable extends Migration
     public function down()
     {
         Schema::table('events',function (Blueprint $table){
+            $table->dropForeign(['country_id']);
             $table->dropColumn('country_id');
 
         }); 
