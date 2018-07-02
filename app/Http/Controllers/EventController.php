@@ -27,7 +27,6 @@ class EventController extends Controller
  * Показать одну записи.
  */
     public function show(Event $event){
-		//$event = Event::find($id);
 
 		return view('events.show', compact('event'));
 		//dd($request);
