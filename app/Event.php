@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Event extends Model
 {	
@@ -13,11 +14,9 @@ class Event extends Model
 		return 'alias';
 	}
 
-
-
 	public function scopePublished($query){
 
-		$query->where('published', 1)->orderBy('start_date', 'asc')->get();
+		$query->where('published', 1)->orderBy('start_date', 'desc')->get();
         
     }
 

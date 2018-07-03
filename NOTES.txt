@@ -14,3 +14,5 @@ https://www.youtube.com/watch?v=R-oH8iTAhVc
 
 просмотр маршрутов
 	php artisan route:list
+
+https://packagist.org/packages/filp/whoops

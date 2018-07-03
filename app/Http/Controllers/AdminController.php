@@ -31,8 +31,9 @@ class AdminController extends Controller
     public function index(){
         //$events = DB::table('events')->get();
         $events = Event::all();
+ //   dd($events);
         return view('admin', compact('events'));
-        //dd($request);
+
     }
 
 

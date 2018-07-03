@@ -16,7 +16,7 @@
   </div>
 
 
-@include('errors.list')
+@include("errors.list")
 
 
 
@@ -27,7 +27,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title">{{$event->name}}</h2>
-                        <h6>Start at {{$event->start_date}}</h6>
+                        <h5>{{ date ('j F Y',  strtotime($event->start_date)) }}</h5>
                         <p>{{$event->details}}</p>
                         <p>
                             <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-primary btn-sm">More</a>

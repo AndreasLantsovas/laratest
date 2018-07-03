@@ -15,11 +15,13 @@ Route::get('/', 'EventController@index');
 
 Route::get('event/{event}', 'EventController@show');
 
+
+
+Route::get('test/', 'EventController@test');
+
+
+
 //admin
-
-
- 
-
 
 Auth::routes();
 
@@ -36,4 +38,3 @@ Route::post('admin/update', 'AdminController@update')->name('update');
 
 Route::get('admin/pablished', 'AdminController@ShowPublished');
 
-//destroy($id)
