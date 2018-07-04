@@ -132,9 +132,9 @@ class AdminController extends Controller
         }
 
         $EventUpdate->save();       
-
-     //   dd($EventUpdate);
-
+//$event = $EventUpdate;
+      //  dd($request);
+//return view('admin.show',compact('event'))->with('success', 'Information has been edited');
         return redirect('admin')->with('success', 'Information has been edited');
     }
 
