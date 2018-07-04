@@ -136,13 +136,17 @@ class AdminController extends Controller
      //   dd($EventUpdate);
 
         return redirect('admin')->with('success', 'Information has been edited');
-
-        
-    //    return redirect('admin')->with('success', 'Information has been added');
-     }
+    }
 
 
-
+/**
+ * Показать одну записи в админке.
+ */
+    public function show($id){
+        $event = Event::find($id);
+        return view('admin.show', compact('event'));
+        //dd($request);
+    }
 
 
 }

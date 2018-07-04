@@ -38,11 +38,11 @@ class EventController extends Controller
  */
     public function test(){
 
-$now = new Carbon();
+    $now = new Carbon();
 
-$fd = $now->format('j F')." - ".$now->format('j F');
+    $fd = $now->format('j F')." - ".$now->format('j F');
 
-        return view('test', compact('fd'));
+    return view('test', compact('fd'));
         //dd($request);
     }
 

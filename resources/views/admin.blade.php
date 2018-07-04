@@ -80,7 +80,9 @@
         </th>  
         <td>{{$event->start_date}}</td>
         <td> {{$event->end_date}}</td>                
-        <td><a href="{{URL::action('AdminController@edit', $event->id)}}" class="btn btn-outline-primary btn-sm">More info</a></td>                
+        <td>
+            <a href="{{URL::action('AdminController@Show', $event->id)}}"" class="btn btn-outline-primary btn-sm">More info</a>
+        </td>                
                        
 <!--                         <p>
                             <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-primary btn-sm">More</a>

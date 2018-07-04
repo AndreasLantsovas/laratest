@@ -38,3 +38,5 @@ Route::post('admin/update', 'AdminController@update')->name('update');
 
 Route::get('admin/published', 'AdminController@ShowPublished');
 
+Route::get('admin/{event}', 'AdminController@Show')->name('show');
+
