@@ -10,9 +10,17 @@ class Event extends Model
 	//убирает поля update time и create time
 	//public $timestamps = false;
 
+//* Accssesers
+
+	public function getStartDateAttribute($value){
+        return date ('j F Y',  strtotime($value));
+    }
+
+
 	public function getRouteKeyName(){
 		return 'alias';
 	}
+
 
 	public function scopePublished($query){
 
@@ -20,10 +28,12 @@ class Event extends Model
         
     }
 
+
     public function country (){
 
     	return $this->belongsTo('App\Country');
 
     }
+
 
 }

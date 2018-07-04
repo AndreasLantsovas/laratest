@@ -1,33 +1,115 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
 
 
 
 @section('content')
 
+
+
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-12">
-      <nav class="navbar navbar-light bg-primary" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="{{URL::action('AdminController@index')}}">All</a>
-        <a class="navbar-brand" href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
+            
+    <div class="row">
+        <div class="col-md-11 mt-4">
+
+
+            
+            <a class="btn btn-secondary"  href="{{URL::action('AdminController@index')}}">All</a>
+            <a class="btn btn-secondary"  href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
+        </div>
+    <div class="col-md-auto mt-4">
+        <a class="btn btn-success" href="{{URL::action('AdminController@create')}}">New</a>
+    </div>
+
+</div>    
+<!--       <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <div class="navbar-nav">
+
+
+
+<div class="btn-group" role="group" aria-label="Basic example">
+ 
+    <a class="btn btn-secondary"  href="{{URL::action('AdminController@index')}}">All</a>
+    <a class="btn btn-secondary"  href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
+ 
+</div>
+
+        </div>
       </nav>
     </div>
   </div>
+
+
+ -->
+
+
+
+    <div class="row">
+        <div class="col-md-12 mt-4">
+
+
+<table class="table table-hover ">
+  <thead>
+    <tr>
+      <th scope="col"> </th>
+      <th scope="col">Status</th>
+      <th scope="col">Start</th>
+      <th scope="col">End</th>
+      <th scope="col">Info</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+
+
+
+
+@foreach ($events as $event)
+<tr>
+        <th scope="row">{{$event->name}}</th>
+
+        <td>
+            @if ($event->published === 1)
+                    <span class="badge  badge-success">published</span>
+                @else
+                    <span class="badge  badge-light">unpublished</span>
+            @endif
+        </td>          
+            
+        </th>  
+        <td>{{$event->start_date}}</td>
+        <td> {{$event->end_date}}</td>                
+        <td><a href="{{URL::action('AdminController@edit', $event->id)}}" class="btn btn-outline-primary btn-sm">More info</a></td>                
+                       
+<!--                         <p>
+                            <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-primary btn-sm">More</a>
+                            <a href="{{URL::action('AdminController@edit', $event->id)}}" class="btn btn-success btn-sm">Edit</a>
+                            <a href="{{URL::action('AdminController@destroy', $event->id)}}" class="btn btn-danger btn-sm">Delete</a>
+                        </p> -->
+                    
+      </tr>         
+        @endforeach
+
+
+ 
+
+  </tbody>
+</table>
 
 
 @include("errors.list")
 
 
 
-
-    <div class="row">
+<!--     <div class="row">
         @foreach ($events as $event)
-            <div class="col-md-12">
+            <div class="col-md-12 mt-4">
                 <div class="card">
+
                     <div class="card-body">
                         <h3 class="card-title">{{$event->name}}</h2>
-                        <h5>{{ date ('j F Y',  strtotime($event->start_date)) }}</h5>
+                        <h5>{{$event->start_date}}</h5>
                         <p>{{$event->details}}</p>
                         <p>
                             <a href="{{URL::action('EventController@show', $event->alias)}}" class="btn btn-primary btn-sm">More</a>
@@ -37,9 +119,12 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforeach -->
     </div>
-</div>
+</div>    
+
 
 @endsection
+
+
  
