@@ -14,19 +14,66 @@ class CountriesTableSeeder extends Seeder
     {
         DB::table('countries')->insert(
         array (
+
+            [
+                'name' => 'Austria'
+                
+            ],
+
+            [
+                'name' => 'Belgium'
+                
+            ],
+
+            [
+                'name' => 'Bulgaria'
+                
+            ],
+
+            [
+                'name' => 'Croatia'
+                
+            ],
+
+            [
+                'name' => 'Cyprus'
+                
+            ],
+
         	[
-        		'name' => 'Italy'
+        		'name' => 'Czech Republic'
                 
 			],
 
 			[
-        		'name' => 'Russia'
+        		'name' => 'Denmark'
 
 			],
 
             [
-                'name' => 'Spain'
+                'name' => 'Finland'
+            ],
+
+            [
+                'name' => 'France'
+            ],
+
+            [
+                'name' => 'Georgia'
+            ],
+
+            [
+                'name' => 'Germany'
+            ],
+
+            [
+                'name' => 'Greece'
+            ],
+
+            [
+                'name' => 'Hungary'
             ]
+
 
 			)
 		);

@@ -28,7 +28,7 @@
 
 			  <div class="card-body">
 			  	<dl class="dl-horizontal">
-			  		<dt>Create at:</dt>
+			  		<dt>Start at:</dt>
 			  		<dd>{{$event->start_date}}</dd>
 			  	</dl>
 

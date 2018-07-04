@@ -23,25 +23,7 @@
     </div>
 
 </div>    
-<!--       <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-        <div class="navbar-nav">
 
-
-
-<div class="btn-group" role="group" aria-label="Basic example">
- 
-    <a class="btn btn-secondary"  href="{{URL::action('AdminController@index')}}">All</a>
-    <a class="btn btn-secondary"  href="{{URL::action('AdminController@ShowPublished')}}">Published</a>
- 
-</div>
-
-        </div>
-      </nav>
-    </div>
-  </div>
-
-
- -->
 
 
 
@@ -52,8 +34,10 @@
 <table class="table table-hover ">
   <thead>
     <tr>
-      <th scope="col"> </th>
+      <th scope="col">Name</th>
       <th scope="col">Status</th>
+      <th scope="col">Country</th>
+
       <th scope="col">Start</th>
       <th scope="col">End</th>
       <th scope="col">Info</th>
@@ -75,11 +59,12 @@
                 @else
                     <span class="badge  badge-light">unpublished</span>
             @endif
-        </td>          
-            
-        </th>  
+        </td> 
+
+        <td>{{$event->country->name}}</td>            
+          
         <td>{{$event->start_date}}</td>
-        <td> {{$event->end_date}}</td>                
+        <td>{{$event->end_date}}</td>                
         <td>
             <a href="{{URL::action('AdminController@Show', $event->id)}}"" class="btn btn-outline-primary btn-sm">More info</a>
         </td>                
@@ -90,7 +75,7 @@
                             <a href="{{URL::action('AdminController@destroy', $event->id)}}" class="btn btn-danger btn-sm">Delete</a>
                         </p> -->
                     
-      </tr>         
+</tr>         
         @endforeach
 
 

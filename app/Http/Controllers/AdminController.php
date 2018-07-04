@@ -119,7 +119,7 @@ class AdminController extends Controller
         $EventUpdate->name = $request->input('name');
         $EventUpdate->details = $request->input('details');
         $EventUpdate->start_date = $request->input('start_date');
-        $EventUpdate->end_date = $request->input('start_date');
+        $EventUpdate->end_date = $request->input('end_date');
         $EventUpdate->published = $request->input('published');
         $EventUpdate->country_id = $request->input('country_id');
         $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')));
