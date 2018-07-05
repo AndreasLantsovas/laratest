@@ -16,3 +16,6 @@ https://www.youtube.com/watch?v=R-oH8iTAhVc
 	php artisan route:list
 
 https://packagist.org/packages/filp/whoops
+
+активные ссылки 
+	{{Request::path() == 'admin' ? 'active' : ''}}

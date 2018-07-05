@@ -4,8 +4,8 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row mt-3">
+        <div class="col-md-9">
             <form method="post" action="{{ route('update') }}">
 
  
@@ -87,20 +87,61 @@
 				@endif
 
 
-                </div>
+    	    	</div>
 
-<div class="row">
+
 	
-	<div class="col-md-6 mt-3">
-              <button type="submit" class="btn btn-primary">Save</button>
-</div>
-</div>
+				<div class="col-md-6 mt-3">
+              		<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+
 
 
 
             </form>
 
-            </div>       
+        </div>   
+
+
+		
+
+		<div class="col-md-3">
+			<div class="card">
+			  
+			  <div class="card-header">
+			    More info
+			  </div>
+
+			  <div class="card-body">
+			  	<dl class="dl-horizontal">
+			  		<dt>Start at:</dt>
+			  		<dd>{{$events->start_date}}</dd>
+			  	</dl>
+
+			  	<dl class="dl-horizontal">
+			  		<dt>Uri:</dt>
+			  		<dd>{{$events->alias}}</dd>
+
+			  	<dl class="dl-horizontal">
+			  		<dt>Country:</dt>
+			  		<dd>{{$events->country->name}}</dd>
+			  	</dl>
+
+
+			  	</dl>
+				<hr>
+
+
+       
+			    <a href="{{URL::action('AdminController@edit', $events->id)}}" class="btn btn-success btn-sm">Edit</a>
+			    <a href="{{URL::action('AdminController@destroy', $events->id)}}" class="btn btn-danger btn-sm">Delete</a>
+			  </div>
+
+			</div>
+		</div>
+	
+
+
     </div>
 </div>
 
