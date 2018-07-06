@@ -28,11 +28,17 @@
 
                              
 
-                            <td>{{$countrie->name}}</td>            
+                            <td><a href="{{route('country', $countrie->id)}}" >{{$countrie->name}}</a>
+
+                            </td>
+
+          <td>{{count($countrie->events)}}</td>
                               
-                                 <td>
+                            <td>
                                 <a href="" class="btn btn-outline-danger btn-sm">Delete</a>
                             </td> 
+                                       
+ 
 
                                         
                     </tr>         

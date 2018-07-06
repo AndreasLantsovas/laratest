@@ -42,7 +42,7 @@ class EventController extends Controller
 
         $country = Country::find($id);
 
-        $events = Event::where('country_id', '=', $id)->get();
+        $events = Event::where('country_id', '=', $id)->published()->get();
 
         //объединение коллекции
 
