@@ -4,6 +4,9 @@
 
   <div class="row">
 
+
+ 
+
     @foreach ($events as $event)
       
       <div class="col-md-4">

@@ -16,7 +16,17 @@
 
 <div class="jumbotron">
     <div class="container">
-        <h1>Hello, world!</h1>
+        <h1>
+
+           @if (! empty($country)) 
+                {{$country->name}}
+              @else
+                {{'Hello world'}}
+            @endif
+
+
+
+        </h1>
     </div>
 </div>
 

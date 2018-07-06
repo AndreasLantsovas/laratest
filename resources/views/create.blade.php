@@ -3,19 +3,25 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-  <form method="post" action="{{ route('create') }}">
-            <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+        <div class="col-md-12 mt-4">
 
-            <div class="form-group">
-                    <input type="hidden" name="id" class="form-control" value="{{$events->id}}">
+          
+          <form method="post" action="{{ route('create') }}">
+            <div class="row"> 
+                <div class="col">
+                  <h3>Add new</h3>
+                      <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}" />
+
+                      <div class="form-group">
+                              <input type="hidden" name="id" class="form-control" value="{{$events->id}}">
+                      </div>
+
+                      <div class="form-group">
+                          <label>Event name</label>
+                          <input type="text" name="name" class="form-control"  rows="1" value="{{$events->name}}">
+                      </div>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="validationCustom05">Event name</label>
-                <input type="text" name="name" class="form-control"  rows="1" value="{{$events->name}}">
-            </div>
-
 
 			<div class="row">
 				<div class="col">
@@ -24,32 +30,23 @@
 				</div>
 
 				<div class="col">
-			        <label for="validationCustom06">End at</label>
-			        <input type="text" name="start_date" class="form-control" rows="1">
-			    </div>			
-			</div>	
+          <label for="validationCustom06">End at</label>
+          <input type="text" name="start_date" class="form-control" rows="1">
+			  </div>			
+			
 
 
 
 
 
 
-
+<div class="col">
 
   <div class="form-group">
     <label>Country</label>
     <select class="form-control" name="country_id">
 
 
-@if (!$events->country_id)
-    <option  selected>Select country</option>
-@else
-
-<option value="{{$events->country->id }}" selected>{{$events->country->name}}</option>
-
-
-
-@endif
 
 
     
@@ -60,6 +57,8 @@
 
 
     </select>
+
+    </div> </div>  
   </div>
 
 

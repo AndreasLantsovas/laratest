@@ -152,7 +152,8 @@ class AdminController extends Controller
     public function countries(){
 
         $countries = Country::all();
-        //dd($countries);
+//echo count($countries);
+       // dd($countries->events);
         return view('admin.countries', compact('countries'));
         
     }

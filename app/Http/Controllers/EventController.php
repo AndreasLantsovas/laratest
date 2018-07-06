@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Event;
+use App\Country;
 use Carbon\Carbon;
+
 
 class EventController extends Controller
 {
@@ -36,14 +38,21 @@ class EventController extends Controller
 /**
  * test
  */
-    public function test(){
+    public function test($id){
 
-    $now = new Carbon();
+        $country = Country::find($id);
 
-    $fd = $now->format('j F')." - ".$now->format('j F');
+        $events = Event::where('country_id', '=', $id)->get();
 
-    return view('test', compact('fd'));
-        //dd($request);
+        //объединение коллекции
+
+       // $concatenated = $collection->concat(['Jane Doe'])->concat(['name' => 'Johnny Doe']);
+        //$events = $events->concat(['Country'=>$country->name]);
+        //dd($events);
+        
+        return view('index', compact('events', 'country'));
+
+//
     }
 
 }
