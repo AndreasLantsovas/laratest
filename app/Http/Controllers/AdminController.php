@@ -132,9 +132,7 @@ class AdminController extends Controller
         }
 
         $EventUpdate->save();       
-//$event = $EventUpdate;
-      //  dd($request);
-//return view('admin.show',compact('event'))->with('success', 'Information has been edited');
+
         return redirect('admin')->with('success', 'Information has been edited');
     }
 
@@ -148,8 +146,36 @@ class AdminController extends Controller
         //dd($request);
     }
 
+/**
+ * Показать все страны.
+ */
+    public function countries(){
+
+        $countries = Country::all();
+        //dd($countries);
+        return view('admin.countries', compact('countries'));
+        
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

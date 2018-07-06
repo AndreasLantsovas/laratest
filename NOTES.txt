@@ -19,3 +19,6 @@ https://packagist.org/packages/filp/whoops
 
 активные ссылки 
 	{{Request::path() == 'admin' ? 'active' : ''}}
+
+gfrtn lkz j,hf,jnrb job,jr
+	filp/whoops

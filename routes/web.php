@@ -32,11 +32,18 @@ Route::get('admin/{event}/delete', 'AdminController@destroy')->middleware('auth'
 
 Route::get('admin/create', 'AdminController@create')->name('create');
 Route::post('admin/create', 'AdminController@store')->name('store');
-
-Route::get('admin/{event}/edit', 'AdminController@edit');
 Route::post('admin/update', 'AdminController@update')->name('update');
+
+
+Route::get('admin/countries', 'AdminController@countries')->name('countries');
 
 Route::get('admin/published', 'AdminController@ShowPublished');
 
 Route::get('admin/{event}', 'AdminController@Show')->name('show');
+Route::get('admin/{event}/edit', 'AdminController@edit');
+
+
+
+
+
 

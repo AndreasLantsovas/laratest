@@ -28,7 +28,7 @@ window.setTimeout(function () {
   </head>
   <body>
 
-@include('layouts.headerNavigation')
+@include('admin.headerNavigation')
 
 
 @yield('content')
