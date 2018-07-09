@@ -7,22 +7,42 @@ use DB;
 use App\Event;
 use App\Country;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 
 class EventController extends Controller
 {
+    
+    //список стран в меню
+    protected $menuCountries;
+    
+    public function __construct() {
+        
+        //меню по странам
+        $menuCountries = Collection::make();
+        $countries = Country::all();
+          foreach ($countries as $country) {
+               if ((count($country->events)) != 0) {
+                  $menuCountries->put($country->name , $country->id);
+              }
+        }
+
+        $this->menuCountries = $menuCountries;
+    }
+
+
+
 
 /**
  * Показать все записи.
  */
     public function index(){
-		//$events = DB::table('events')->get();
-// 		$events = Event::all();
-// dd($events);;
-    //все опубликованные записи с сортировой по дате начала
+
+        $countries = Country::all();
     	$events = Event::published()->get();
-        //dd($events);
-    	return view('index', compact('events'));
+        $menuCountries = $this->menuCountries;
+
+    	return view('index', compact('events', 'menuCountries'));
 		//dd($request);
     }
 
@@ -31,28 +51,55 @@ class EventController extends Controller
  */
     public function show(Event $event){
 
-		return view('events.show', compact('event'));
+        //список стран в меню
+        $menuCountries = $this->menuCountries;
+
+		return view('events.show', compact('event','menuCountries'));
 		//dd($request);
     }
 
 /**
  * test
  */
-    public function test($id){
+    public function CountryEvents($id){
 
+        $menuCountries = $this->menuCountries;
         $country = Country::find($id);
-
         $events = Event::where('country_id', '=', $id)->published()->get();
-
-        //объединение коллекции
-
-       // $concatenated = $collection->concat(['Jane Doe'])->concat(['name' => 'Johnny Doe']);
-        //$events = $events->concat(['Country'=>$country->name]);
-        //dd($events);
         
-        return view('index', compact('events', 'country'));
+        return view('index', compact('events', 'country','menuCountries'));
+
+//
+    }
+
+
+    /**
+ * test
+ */
+    public function test(){
+
+    //меню по странам
+        $menuCountries = Collection::make();
+        $countries = Country::all();
+
+         foreach ($countries as $country) {
+              if ((count($country->events)) != 0) {
+                 $menuCountries->put($country->name , $country->id);
+             }
+         }
+
+     //  dd($collection);
+        
+        return view('index2', compact( 'menuCountries'));
 
 //
     }
 
 }
+
+
+
+
+
+
+

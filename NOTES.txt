@@ -20,5 +20,20 @@ https://packagist.org/packages/filp/whoops
 активные ссылки 
 	{{Request::path() == 'admin' ? 'active' : ''}}
 
-gfrtn lkz j,hf,jnrb job,jr
+пакет для отладки страниц
 	filp/whoops
+
+
+если нет данных из контроллера
+	
+	@if (! empty($country)) 
+		{{$country->name}}
+	 @else
+		{{'Hello world'}}
+	@endif
+
+
+
+объединение коллекции
+
+	$concatenated = $collection->concat(['Jane Doe'])->concat(['name' => 'Johnny Doe']);
