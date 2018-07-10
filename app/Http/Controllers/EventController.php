@@ -61,11 +61,13 @@ class EventController extends Controller
 /**
  * test
  */
-    public function CountryEvents($id){
+    public function CountryEvents(Country $country){
 
+        //список стран в меню
         $menuCountries = $this->menuCountries;
-        $country = Country::find($id);
-        $events = Event::where('country_id', '=', $id)->published()->get();
+
+        //dd($country);
+        $events = Event::where('country_id', '=', $country->id)->published()->get();
         
         return view('index', compact('events', 'country','menuCountries'));
 

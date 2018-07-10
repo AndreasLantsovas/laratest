@@ -15,7 +15,7 @@ Route::get('/', 'EventController@index');
 
 Route::get('event/{event}', 'EventController@show');
 
-Route::get('country/{id}', 'EventController@CountryEvents')->name('country');
+Route::get('country/{country}', 'EventController@CountryEvents')->name('country');
 
 Route::get('test/', 'EventController@test');
 

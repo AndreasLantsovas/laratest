@@ -12,4 +12,10 @@ class Country extends Model
     	return $this->hasMany('App\Event');
 
     }
+
+	public function getRouteKeyName(){
+		return 'name';
+	}
+
+
 }

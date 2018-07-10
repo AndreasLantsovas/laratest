@@ -23,7 +23,7 @@
 
 	@if (! empty($menuCountries)) 
 	      @foreach ($menuCountries as $key=>$value)
-	        <a class="dropdown-item" href="{{URL::action('EventController@CountryEvents', $value)}}">{{$key}}</a>
+	        <a class="dropdown-item" href="{{URL::action('EventController@CountryEvents', $key)}}">{{$key}}</a>
 	      @endforeach
 	 @else
 		{{'No data'}}
