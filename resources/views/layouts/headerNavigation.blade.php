@@ -22,8 +22,8 @@
 
 
 	@if (! empty($menuCountries)) 
-	      @foreach ($menuCountries as $key=>$value)
-	        <a class="dropdown-item" href="{{URL::action('EventController@CountryEvents', $key)}}">{{$key}}</a>
+	      @foreach ($menuCountries as $country)
+	        <a class="dropdown-item" href="{{URL::action('EventController@CountryEvents', $country)}}">{{$country}}</a>
 	      @endforeach
 	 @else
 		{{'No data'}}

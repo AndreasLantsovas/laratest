@@ -21,13 +21,19 @@ class EventController extends Controller
         //меню по странам
         $menuCountries = Collection::make();
         $countries = Country::all();
-          foreach ($countries as $country) {
-               if ((count($country->events)) != 0) {
-                  $menuCountries->put($country->name , $country->id);
-              }
-        }
+            foreach ($countries as $country) {
+                if ((count($country->events)) != 0) {
 
-        $this->menuCountries = $menuCountries;
+                    foreach ($country->events as $event ) {
+                        if ($event->published === 1){
+                            //$menuCountries->put($country->name);
+                            $menuCountries->push($country->name);
+                        };
+                    }
+                }
+            }
+
+        $this->menuCountries = $menuCountries->unique()->values()->all();
     }
 
 
@@ -80,24 +86,49 @@ class EventController extends Controller
  */
     public function test(){
 
-    //меню по странам
+
+
+        //меню по странам
         $menuCountries = Collection::make();
-        $countries = Country::all();
+        $countries = Country::with('events')->get();
+//dd($countries);
+        //dd($country->name);
+            foreach ($countries as $country) {
+                
 
-         foreach ($countries as $country) {
-              if ((count($country->events)) != 0) {
-                 $menuCountries->put($country->name , $country->id);
-             }
-         }
+                    foreach ($country->events as $event ) {
 
-     //  dd($collection);
-        
-        return view('index2', compact( 'menuCountries'));
+                        //print_r($country);
+                        if ($event->published === 1){
+                            //$menuCountries->put($country->name);
+                            $menuCountries->push($country->name , $country->id);
+                        };
+                    }
+                
+            }
 
-//
+ //       $this->menuCountries = $menuCountries;
+
+
+            $unique_data = $menuCountries->unique()->values()->all();
+ dd($unique_data);
+
+
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

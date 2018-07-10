@@ -37,3 +37,6 @@ https://packagist.org/packages/filp/whoops
 объединение коллекции
 
 	$concatenated = $collection->concat(['Jane Doe'])->concat(['name' => 'Johnny Doe']);
+
+уникальные значения из коллекции
+	$unique_data = $menuCountries->unique()->values()->all();
