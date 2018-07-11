@@ -4,7 +4,7 @@
         @if (\Session::has('success'))
             <div id="successMessage" class="alert alert-success" >
             	<button type="button" class="close" data-dismiss="alert">&times;</button>
-            	<p>{{ \Session::get('success') }}</p>
+            	{{ \Session::get('success') }}
             </div><br/>
 
 

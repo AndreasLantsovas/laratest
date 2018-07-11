@@ -55,26 +55,35 @@ class AdminController extends Controller
 /**
  * Добавить запись.
  */
+    public function store(Request $request){
 
-    public function store(Request $request)
-    {
+
+        //валидация данных
+        $this->validate($request, array(
+            'name' => 'required|max:550',
+            'details' => 'required|max:550|min:50',
+            'start_date' =>'required',
+            'end_date' =>'required'
+            ));
+
+
+
         $event = new Event;
-
         $event->name = $request->name;
         $event->start_date = $request->start_date;
-        $event->end_date = $request->start_date;
+        $event->end_date = $request->end_date;
         $event->details = $request->details;
         $event->alias = strtolower (str_replace(' ', '-', $request->name));
         $event->country_id = $request->country_id;
+        
+
+        
 
        // dd($event);
 
         $event->save();
 
-        // $country = new Countries;
-        // $country->name = $request->country;
-        // $country->save();
-        
+       
         return redirect('admin')->with('success', 'Information has been added');
 
      }
@@ -82,25 +91,19 @@ class AdminController extends Controller
 /**
  * форма для добавления запись.
  */
-    public function create()
-     {
+    public function create(){
         $events = new Event;
         $events->published = 0;
 
         $countries = Country::all();
-
-//---------------------
-//                dd($countries);
-//---------------------
-
+        
         return view('create', compact('events', 'countries'));
      }
 
 /**
  * форма для редактирования запись.
  */
-    public function edit($id)
-     {
+    public function edit($id){
 
         $countries = Country::all();
         $events = Event::find($id);
@@ -147,13 +150,12 @@ class AdminController extends Controller
     }
 
 /**
- * Показать все страны.
+ * Показатьстраницу со всеми странами.
  */
     public function countries(){
 
         $countries = Country::all();
-//echo count($countries);
-       // dd($countries->events);
+
         return view('admin.countries', compact('countries'));
         
     }

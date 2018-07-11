@@ -2,6 +2,27 @@
 
 @section('content')
 <div class="container">
+  
+
+
+
+@if ($errors->any())
+<div class="row">
+  <div class="col-md-12 mt-4">
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @foreach ($errors->all() as $error)
+                {{ $error }} <br>
+            @endforeach
+        
+    </div>
+  </div>
+</div>
+@endif
+
+
+
+  
     <div class="row">
         <div class="col-md-12 mt-4">
 
@@ -18,7 +39,7 @@
 
                       <div class="form-group">
                           <label>Event name</label>
-                          <input type="text" name="name" class="form-control"  rows="1" value="{{$events->name}}">
+                          <input type="text" name="name" class="form-control"  rows="1" value="{{Request::old('name')}}">
                       </div>
                 </div>
             </div>
@@ -31,7 +52,7 @@
 
 				<div class="col">
           <label for="validationCustom06">End at</label>
-          <input type="text" name="start_date" class="form-control" rows="1">
+          <input type="text" name="end_date" class="form-control" rows="1">
 			  </div>			
 			
 
@@ -68,7 +89,7 @@
 
                 <div class="form-group">
                     <label >Details</label>
-                    <textarea name="details" class="form-control" rows="6" >{{$events->details}}</textarea>
+                    <textarea name="details" class="form-control" rows="6" >{{Request::old('details')}}</textarea>
                 </div>
 
 

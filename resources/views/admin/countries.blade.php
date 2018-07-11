@@ -28,7 +28,7 @@
 
                              
 
-                            <td><a href="{{route('country', $countrie->id)}}" >{{$countrie->name}}</a>
+                            <td><a href="{{route('country', $countrie->name)}}" >{{$countrie->name}}</a>
 
                             </td>
 
