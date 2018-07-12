@@ -1,0 +1,60 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class LinksTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('links')->insert(
+        array (
+
+            [
+                'event_id' => '8',
+                'link' => 'https://www.facebook.com/events/1311327189013092/',
+                'description' => 'facebook'
+                
+            ],
+
+            [
+                'event_id' => '1',
+                'link' => 'https://www.facebook.com/events/1435042793273119/',
+                'description' => 'facebook'
+                
+            ],
+
+            
+            [
+                'event_id' => '2',
+                'link' => 'https://www.facebook.com/events/265508263941787/',
+                'description' => 'facebook'
+                
+            ],
+
+            [
+                'event_id' => '2',
+                'link' => 'https://youtu.be/3amdd0gRMRk',
+                'description' => 'video'
+                
+            ],
+
+            [
+                'event_id' => '2',
+                'link' => 'https://shop3.ticketscript.com/channel/html/get-products/rid/3UB5UBX3/eid/360878/all-products/language/en',
+                'description' => 'tickets'
+                
+            ],
+
+
+			)
+		);
+    }
+}
+
+
+//https://www.facebook.com/events/1311327189013092/
