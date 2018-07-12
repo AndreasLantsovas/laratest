@@ -30,7 +30,8 @@ class AdminController extends Controller
  */
     public function index(){
         //$events = DB::table('events')->get();
-        $events = Event::all();
+        //orderBy('start_date', 'asc')->get()
+        $events = Event::orderBy('start_date', 'asc')->get();
  //   dd($events);
         return view('admin', compact('events'));
 

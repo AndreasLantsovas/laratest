@@ -12,9 +12,9 @@ class Event extends Model
 
 //* Accssesers
 
-	public function getStartDateAttribute($value){
-        return date ('j F Y',  strtotime($value));
-    }
+	// public function getStartDateAttribute($value){
+ //        return date ('j F Y',  strtotime($value));
+ //    }
 
 
 	public function getRouteKeyName(){
@@ -24,7 +24,7 @@ class Event extends Model
 
 	public function scopePublished($query){
 
-		$query->where('published', 1)->orderBy('start_date', 'desc')->get();
+		$query->where('published', 1)->orderBy('start_date', 'asc')->get();
         
     }
 
