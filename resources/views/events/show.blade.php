@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
-
+@section('pageTitle')
+	{{$event->name}}
+@endsection
 
 @section('jumbotron')
 <div class="jumbotron">
