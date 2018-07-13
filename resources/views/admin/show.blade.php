@@ -17,6 +17,18 @@
 			<div class="blog-post">
 		        <p>{{$event->details}}</p>
 			</div>
+
+		@foreach ($links as $link)
+
+			@if ($link->description == 'video')
+		        	<div class="embed-responsive embed-responsive-16by9">
+		  				<iframe class="embed-responsive-item" src="{{$link->link}}" allowfullscreen></iframe>
+					</div>                
+				@else
+			                                  
+			@endif
+					
+		@endforeach
 		</div>
 
 		<div class="col-md-3">
@@ -34,15 +46,29 @@
 
 			  	<dl class="dl-horizontal">
 			  		<dt>Uri:</dt>
-			  		<dd>{{$event->alias}}</dd>
+			  		<dd>event/{{$event->alias}}</dd>
 
 			  	<dl class="dl-horizontal">
 			  		<dt>Country:</dt>
 			  		<dd>{{$event->country->name}}</dd>
 			  	</dl>
+			  	<hr>
+			  	<h4>Links</h4>
 
+@foreach ($links as $link)
 
+			  	<dl class="dl-horizontal">
+			  
+
+ 
+
+			  		<dd><a href="{{$link->link}}" target="_blank">{{$link->description}}</a></dd>
 			  	</dl>
+
+
+
+@endforeach
+
 				<hr>
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Country;
+use App\Link;
 
 class AdminController extends Controller
 {
@@ -145,8 +146,14 @@ class AdminController extends Controller
  * Показать одну записи в админке.
  */
     public function show($id){
+
         $event = Event::find($id);
-        return view('admin.show', compact('event'));
+
+        $links = Link::where('event_id', '=', $id)->get();
+
+        //dd($links);
+
+        return view('admin.show', compact('event', 'links'));
         //dd($request);
     }
 

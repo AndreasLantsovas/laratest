@@ -14,21 +14,16 @@
 
 @include('layouts.headerNavigation')
 
-<div class="jumbotron">
-    <div class="container">
-        <h1>
 
-           @if (! empty($country)) 
-                {{$country->name}}
-              @else
-                {{'Hello world'}}
-            @endif
+
+@yield('jumbotron')
 
 
 
-        </h1>
-    </div>
-</div>
+
+
+
+
 
 <div class="container">
     @yield('content')

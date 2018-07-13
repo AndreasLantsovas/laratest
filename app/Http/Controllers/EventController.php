@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Event;
 use App\Country;
+use App\Link;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 
@@ -60,7 +61,13 @@ class EventController extends Controller
         //список стран в меню
         $menuCountries = $this->menuCountries;
 
-		return view('events.show', compact('event','menuCountries'));
+        $links = Link::where('event_id', '=', $event->id)->get();
+
+        //dd($event->id);
+        
+
+
+		return view('events.show', compact('event','menuCountries', 'links'));
 		//dd($request);
     }
 
@@ -87,31 +94,15 @@ class EventController extends Controller
     public function test(){
 
 
+        
+        $links = Link::where('event_id', '=', 2)->get();
+    
+        foreach ($links as $link) {
+            echo $link->description.'<br>' ;
+            echo $link->link.'<br>'.'<br>' ;
+        }
 
-        //меню по странам
-        $menuCountries = Collection::make();
-        $countries = Country::with('events')->get();
-//dd($countries);
-        //dd($country->name);
-            foreach ($countries as $country) {
-                
-
-                    foreach ($country->events as $event ) {
-
-                        //print_r($country);
-                        if ($event->published === 1){
-                            //$menuCountries->put($country->name);
-                            $menuCountries->push($country->name , $country->id);
-                        };
-                    }
-                
-            }
-
- //       $this->menuCountries = $menuCountries;
-
-
-            $unique_data = $menuCountries->unique()->values()->all();
- dd($unique_data);
+        dd($links);
 
 
 

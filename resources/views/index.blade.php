@@ -1,5 +1,26 @@
 @extends('layouts.layout')
 
+
+@section('jumbotron')
+<div class="jumbotron">
+    <div class="container">
+        <h1>
+
+           @if (! empty($country)) 
+                {{$country->name}}
+              @else
+                {{'Hello world'}}
+            @endif
+
+
+
+        </h1>
+    </div>
+</div>
+@endsection
+
+
+
 @section('content')
 
   <div class="row">

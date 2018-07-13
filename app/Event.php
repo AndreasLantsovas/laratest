@@ -35,5 +35,11 @@ class Event extends Model
 
     }
 
+    public function link (){
+
+    	return $this->belongsTo('App\Link');
+
+    }    
+
 
 }

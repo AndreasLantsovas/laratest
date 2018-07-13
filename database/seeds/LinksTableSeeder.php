@@ -28,6 +28,13 @@ class LinksTableSeeder extends Seeder
                 
             ],
 
+            [
+                'event_id' => '1',
+                'link' => 'https://www.youtube.com/embed/27MVPoMNK5c',
+                'description' => 'video'
+                
+            ],
+
             
             [
                 'event_id' => '2',
@@ -38,7 +45,7 @@ class LinksTableSeeder extends Seeder
 
             [
                 'event_id' => '2',
-                'link' => 'https://youtu.be/3amdd0gRMRk',
+                'link' => 'https://www.youtube.com/embed/3amdd0gRMRk',
                 'description' => 'video'
                 
             ],
@@ -57,4 +64,4 @@ class LinksTableSeeder extends Seeder
 }
 
 
-//https://www.facebook.com/events/1311327189013092/
+https://youtu.be/27MVPoMNK5c
