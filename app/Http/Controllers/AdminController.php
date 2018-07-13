@@ -72,10 +72,12 @@ class AdminController extends Controller
 
         $event = new Event;
         $event->name = $request->name;
-        $event->start_date = $request->start_date;
-        $event->end_date = $request->end_date;
+
+        //вынести форматирование даты в отдельную функцию
+        $event->start_date = date ('Y-m-d',  strtotime(str_replace('/', '-', $request->start_date)));
+        $event->end_date = date ('Y-m-d',  strtotime(str_replace('/', '-', $request->end_date)));
         $event->details = $request->details;
-        $event->alias = strtolower (str_replace(' ', '-', $request->name).'-'.date('ymd',  strtotime($request->start_date)));
+        $event->alias = strtolower (str_replace(' ', '-', $request->name).'-'.date('ymd',  strtotime(str_replace('/', '-', $request->start_date))));
         $event->country_id = $request->country_id;
         
 //dd($event);

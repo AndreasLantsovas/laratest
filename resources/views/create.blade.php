@@ -1,5 +1,11 @@
 @extends('layouts.admin')
 
+@section('stylesheets')
+  <link href="{{ asset('css/parsley.css') }}" rel="stylesheet">
+@endsection
+
+
+
 @section('content')
 <div class="container">
   
@@ -27,7 +33,7 @@
         <div class="col-md-12 mt-4">
 
           
-          <form method="post" action="{{ route('create') }}">
+          <form data-parsley-validate method="post" action="{{ route('create') }}">
             <div class="row"> 
                 <div class="col">
                   <h3>Add new</h3>
@@ -39,20 +45,20 @@
 
                       <div class="form-group">
                           <label>Event name</label>
-                          <input type="text" name="name" class="form-control"  rows="1" value="{{Request::old('name')}}">
+                          <input required type="text" name="name" class="form-control"  rows="1" value="{{Request::old('name')}}">
                       </div>
                 </div>
             </div>
 
 			<div class="row">
 				<div class="col">
-					<label for="">Start at</label>
-			        <input type="text" name="start_date" class="form-control" rows="1">	
+					<label>Start at</label>
+			        <input required pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" name="start_date" class="form-control" rows="1" placeholder="MM/DD/YYYY" value="{{Request::old('start_date')}}">	
 				</div>
 
 				<div class="col">
-          <label for="validationCustom06">End at</label>
-          <input type="text" name="end_date" class="form-control" rows="1">
+          <label >End at</label>
+          <input required pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" name="end_date" class="form-control" rows="1" placeholder="MM/DD/YYYY">
 			  </div>			
 			
 
@@ -89,25 +95,25 @@
 
                 <div class="form-group">
                     <label >Details</label>
-                    <textarea name="details" class="form-control" rows="6" >{{Request::old('details')}}</textarea>
+                    <textarea required name="details" class="form-control" rows="6" >{{Request::old('details')}}</textarea>
                 </div>
 
 
                 <div class="form-check">
 
-@if (!$events->id)
+                  @if (!$events->id)
 
-@else
+                  @else
 
-                   @if ($events->published === 0)
-                      <input type="checkbox" class="form-check-input"  name="published" value="0" >
-                   @else
-                      <input type="checkbox" class="form-check-input"  name="published" value="1" checked>
-                   @endif
+                                     @if ($events->published === 0)
+                                        <input type="checkbox" class="form-check-input"  name="published" value="0" >
+                                     @else
+                                        <input type="checkbox" class="form-check-input"  name="published" value="1" checked>
+                                     @endif
 
-                   <label class="form-check-label">Publish</label>
+                                     <label class="form-check-label">Publish</label>
 
-@endif
+                  @endif
 
 
                 </div>
@@ -119,4 +125,26 @@
 </div>
 
 @endsection
+
+
+
+
+@section('scripts')
+  <script src="{{ asset('js/parsley.min.js') }}"></script>
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
