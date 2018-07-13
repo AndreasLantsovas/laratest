@@ -13,7 +13,7 @@
 	</div>
 
 	<div class="row mt-1">
-		<div class="col-md-9 ">
+		<div class="col-md-8">
 			<div class="blog-post">
 		        <p>{{$event->details}}</p>
 			</div>
@@ -31,7 +31,7 @@
 		@endforeach
 		</div>
 
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<div class="card">
 			  
 			  <div class="card-header">
@@ -53,33 +53,54 @@
 			  		<dd>{{$event->country->name}}</dd>
 			  	</dl>
 			  	<hr>
-			  	<h4>Links</h4>
-
-@foreach ($links as $link)
-
-			  	<dl class="dl-horizontal">
-			  
-
- 
-
-			  		<dd><a href="{{$link->link}}" target="_blank">{{$link->description}}</a></dd>
-			  	</dl>
-
-
-
-@endforeach
-
-				<hr>
-
-
-       
+			       
 			    <a href="{{URL::action('AdminController@edit', $event->id)}}" class="btn btn-success btn-sm">Edit</a>
 			    <a href="{{URL::action('AdminController@destroy', $event->id)}}" class="btn btn-danger btn-sm">Delete</a>
 			  </div>
 
 			</div>
-		</div>
-	</div>
+			
+			<div class="card mt-4">
+				<div class="card-header">
+					Links
+				</div>
+				<div class="card-body">
+					@foreach ($links as $link)
+					  	<dl class="dl-horizontal">
+							<dd><a href="{{$link->link}}" target="_blank">{{$link->description}}</a></dd>
+						</dl>
+					@endforeach
+				</div>
+			</div>
+
+
+			<div class="card mt-4">
+				<div class="card-header">
+					Add youtube video
+				</div>
+				<div class="card-body">
+					<form action="" class="form-inline">
+						<div class="input-group mb-2 mr-sm-2 ">
+						<input type="text" class="form-control" placeholder="Url"> 
+					</div>
+						 <button type="submit" class="btn btn-primary mb-2">Submit</button>
+					</form>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>   
 
 
