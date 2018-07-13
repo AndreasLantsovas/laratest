@@ -63,7 +63,7 @@ class AdminController extends Controller
         //валидация данных
         $this->validate($request, array(
             'name' => 'required|max:550',
-            'details' => 'required|max:550|min:50',
+            'details' => 'required|max:550|min:3',
             'start_date' =>'required',
             'end_date' =>'required'
             ));
@@ -75,13 +75,10 @@ class AdminController extends Controller
         $event->start_date = $request->start_date;
         $event->end_date = $request->end_date;
         $event->details = $request->details;
-        $event->alias = strtolower (str_replace(' ', '-', $request->name));
+        $event->alias = strtolower (str_replace(' ', '-', $request->name).'-'.date('ymd',  strtotime($request->start_date)));
         $event->country_id = $request->country_id;
         
-
-        
-
-       // dd($event);
+//dd($event);
 
         $event->save();
 
@@ -127,7 +124,7 @@ class AdminController extends Controller
         $EventUpdate->end_date = $request->input('end_date');
         $EventUpdate->published = $request->input('published');
         $EventUpdate->country_id = $request->input('country_id');
-        $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')));
+        $EventUpdate->alias = strtolower (str_replace(' ', '-', $request->input('name')).'-'.date('ymd',  strtotime($request->input('start_date'))));
         
         if ($EventUpdate->published === null) {
             $EventUpdate->published = 0;
