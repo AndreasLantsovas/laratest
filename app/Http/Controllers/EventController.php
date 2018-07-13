@@ -58,6 +58,9 @@ class EventController extends Controller
  */
     public function show(Event $event){
 
+        // $x = $event->published()->get();
+        // dd($x);
+
         //список стран в меню
         $menuCountries = $this->menuCountries;
 

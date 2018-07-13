@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Link;
 
 class LinksTableSeeder extends Seeder
 {
@@ -63,5 +64,3 @@ class LinksTableSeeder extends Seeder
     }
 }
 
-
-https://youtu.be/27MVPoMNK5c

@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=R-oH8iTAhVc
 обновление миграций и сидов
 	php artisan migrate:refresh --seed
 
-при слонирование проекта из .env проекта пропал app.key. Необходимо 
+при клонирование проекта из .env проекта пропал app.key. Необходимо 
 	php artisan key:generate
 	php artisan config:clear
 
@@ -16,12 +16,13 @@ https://www.youtube.com/watch?v=R-oH8iTAhVc
 	php artisan route:list
 
 https://packagist.org/packages/filp/whoops
+пакет для отладки страниц
+	filp/whoops
 
 активные ссылки 
 	{{Request::path() == 'admin' ? 'active' : ''}}
 
-пакет для отладки страниц
-	filp/whoops
+
 
 
 если нет данных из контроллера
@@ -40,3 +41,6 @@ https://packagist.org/packages/filp/whoops
 
 уникальные значения из коллекции
 	$unique_data = $menuCountries->unique()->values()->all();
+
+при проблемах с сидами
+	composer dump-autoload

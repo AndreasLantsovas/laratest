@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'EventController@index');
+Route::get('/', 'EventController@index')-> name('index');
 //Route::get('/', 'EventController@index') -> name('index');
 
-Route::get('event/{event}', 'EventController@show');
+Route::get('event/{event}', 'EventController@show')->middleware('published');
 
 Route::get('country/{country}', 'EventController@CountryEvents')->name('country');
 
