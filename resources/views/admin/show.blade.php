@@ -62,8 +62,12 @@
 			
 			<div class="card mt-4">
 				<div class="card-header">
-					Links
+					Links 
+
 				</div>
+
+
+
 				<div class="card-body">
 					@foreach ($links as $link)
 					  	<dl class="dl-horizontal">
@@ -73,10 +77,12 @@
 				</div>
 			</div>
 
+<a href="{{URL::action('AdminController@test', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
 
-			<div class="card mt-4">
+@section ('links')
+				<div class="card mt-4">
 				<div class="card-header">
-					Add youtube video
+					Add link
 				</div>
 				<div class="card-body">
 					<form action="" class="form-inline">
@@ -87,6 +93,9 @@
 					</form>
 				</div>
 			</div>
+
+@endsection
+
 
 
 

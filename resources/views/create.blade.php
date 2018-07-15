@@ -33,7 +33,7 @@
         <div class="col-md-12 mt-4">
 
           
-          <form data-parsley-validate method="post" action="{{ route('create') }}">
+          <form data-parsley-validate method="post" action="{{route('addLink')}}">
             <div class="row"> 
                 <div class="col">
                   <h3>Add new</h3>

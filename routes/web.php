@@ -42,6 +42,8 @@ Route::get('admin/published', 'AdminController@ShowPublished');
 Route::get('admin/{event}', 'AdminController@Show')->name('show');
 Route::get('admin/{event}/edit', 'AdminController@edit');
 
+//working with inks
+Route::get('admin/{event}/link', 'AdminController@test');
 
 
 

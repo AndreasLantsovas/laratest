@@ -167,6 +167,24 @@ class AdminController extends Controller
         
     }
 
+
+/**
+ * TEST FUNCTION
+ */
+
+    public function test($id){
+        //dd($request);
+        $event = Event::find($id);
+
+        $links = Link::where('event_id', '=', $id)->get();
+
+        //dd($links);
+
+        return view('admin.show', compact('event', 'links'));
+    }
+
+
+
 }
 
 
