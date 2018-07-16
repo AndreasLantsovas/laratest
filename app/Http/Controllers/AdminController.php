@@ -173,14 +173,57 @@ class AdminController extends Controller
  */
 
     public function test($id){
-        //dd($request);
+        //dd($id);
         $event = Event::find($id);
 
         $links = Link::where('event_id', '=', $id)->get();
 
         //dd($links);
 
-        return view('admin.show', compact('event', 'links'));
+        return view('admin.links', compact('event', 'links'));
+    }
+
+
+/**
+ * Добавление линков или обновление если линк с указанным discription существует
+ */
+    public function link_store(Request $request, $id){
+
+        if ($request->input('link_description') === 'video') {
+            
+            $link = 'https://www.youtube.com/embed/'.str_replace('https://www.youtube.com/watch?v=', '', $request->input('link'));
+        }
+            //dd($youtubeLink);
+        else {
+
+                $link = $request->input('link');
+            }
+        
+
+    //dd($id);    
+        $link = Link::updateOrCreate(['description' => $request->input('link_description')],
+            ['event_id' => $id, 'link'=>$link, 'description'=>$request->input('link_description')]);
+        $event = Event::find($id);
+        $links = Link::where('event_id', '=', $id)->get();
+        
+        return redirect()->back()->with(compact('event', 'links'));
+        //return view('admin.links', compact('event', 'links'));
+    }
+
+/**
+ * Удаление линка
+ */
+    public function link_delete($event_id, $link_id){
+
+        $link = Link::findOrFail($link_id);
+        $link->delete($link_id);
+
+        $event = Event::find($event_id);
+        $links = Link::where('event_id', '=', $event_id)->get();
+
+        return redirect()->back()->with('success','Information has been delited' ,compact('event', 'links'));
+
+        //return view('admin.links', compact('event', 'links'));
     }
 
 

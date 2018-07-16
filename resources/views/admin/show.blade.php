@@ -75,9 +75,10 @@
 						</dl>
 					@endforeach
 				</div>
+				<a href="{{URL::action('AdminController@test', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
+
 			</div>
 
-<a href="{{URL::action('AdminController@test', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
 
 @section ('links')
 				<div class="card mt-4">

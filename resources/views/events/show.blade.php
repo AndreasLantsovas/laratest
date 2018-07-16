@@ -27,26 +27,9 @@
 
 
 
-
-
-
-
 @section('content')
 
-<div class="row mt-4">
-	<!-- <div class="col-md-12">
-		<div class="blog-post">
 
-
-	        <h2 class="blog-post-title">{{$event->name}}</h2>
-	        	
-	        <h6>{{$event->country->name}} | {{ date ('j F',  strtotime($event->start_date)) }} - {{ date ('j F',  strtotime($event->end_date)) }}</h6>
-	        <hr>
-		</div>
-	</div> -->
-
-
-	<div class="col-md-9">
 
 		@foreach ($links as $link)
 
@@ -59,52 +42,44 @@
 			@endif
 					
 		@endforeach
+	
 
 
+	<div class="row"> 
 
-		<p class='mt-3'>{{$event->details}}</p>
+		<div class="col-md-3 mt-4">
+		
+			@foreach ($links as $link)
+			<ul>
+				<li>
+					<a href="{{$link->link}}" target="_blank">{{$link->description}}</a>
+				</li>
+			</ul>
+			@endforeach
 
-	</div>
+		</div>
 
+		<div class="col-md-9">
+			<p class='mt-3'>{{$event->details}}</p>
 
+		</div>
 
-	<div class="col-md-3">
-		<div class="card">
-		  <div class="card-header">
-		    Links
-		  </div>
-		  <div class="card-body">
-		   
+	</div> 
 
-
-
-
-
-@foreach ($links as $link)
-
-			  	<dl class="dl-horizontal">
-			  
-
- 
-
-			  		<dd><a href="{{$link->link}}" target="_blank">{{$link->description}}</a></dd>
-			  	</dl>
-
-
-
-@endforeach
-
-
-
-
-
-		  </div>
-</div>
-	</div>
-</div>
-
-   
+  
 
 
 @endsection
+
+
+@section('sidebar')
+	<div class="card card-body bg-light">
+     sidebar
+	</div>
+@endsection
+
+
+
+
+
 

@@ -42,10 +42,11 @@ Route::get('admin/published', 'AdminController@ShowPublished');
 Route::get('admin/{event}', 'AdminController@Show')->name('show');
 Route::get('admin/{event}/edit', 'AdminController@edit');
 
-//working with inks
-Route::get('admin/{event}/link', 'AdminController@test');
+//working with inks in post
 
+Route::get('admin/{event}/link/', 'AdminController@test')->name('links');
 
+Route::post('admin/{event}/link/store', 'AdminController@link_store')->name('linkstore');
 
-
+Route::get('admin/{event}/link/delete/{id}', 'AdminController@link_delete')->name('link_delete');
 

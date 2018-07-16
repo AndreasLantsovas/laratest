@@ -30,7 +30,7 @@
 
     @foreach ($events as $event)
       
-      <div class="col-md-4">
+      <div class="col-md-6">
           <div class="card mb-4">
             <div class="card-body">
               <h3 class="card-title">{{$event->name}}</h2>
@@ -47,4 +47,10 @@
     @endforeach   
   </div>
 
+@endsection
+
+@section('sidebar')
+  <div class="card card-body bg-light">
+     sidebar
+  </div>
 @endsection

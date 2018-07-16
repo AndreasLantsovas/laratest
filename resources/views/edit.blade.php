@@ -25,16 +25,21 @@
 
 
 
-                <div class="form-group">
-                    <label for="validationCustom06">Start at</label>
-                        <input type="text" name="start_date" class="form-control" rows="1" value="{{$events->start_date}}">
-                </div>
+					<div class="row">
+						<div class="col">
+							<label>Start at</label>
+				     	   <input  pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" name="start_date" class="form-control" rows="1" placeholder="MM/DD/YYYY" value="{{$events->start_date}}">	
+					</div>
 
-               <div class="form-group">
-                    <label >End at</label>
-                    <input type="text" name="end_date" class="form-control" rows="1" value="{{$events->end_date}}">
-                </div>
+					<div class="col">
+	         			<label >End at</label>
+	          			<input  pattern="\d{1,2}/\d{1,2}/\d{4}" type="text" name="end_date" class="form-control" rows="1" placeholder="MM/DD/YYYY" value="{{$events->end_date}}">
+					</div>
+				
 
+
+
+<div class="col">
                 <div class="form-group">
 				    <label>Country</label>
 				    <select class="form-control" name="country_id">
@@ -43,23 +48,17 @@
 					@if (!$events->country_id)
 					    <option  selected>Select country</option>
 					@else
-
-					<option value="{{$events->country->id }}" selected>{{$events->country->name}}</option>
-
-
-
+						<option value="{{$events->country->id }}" selected>{{$events->country->name}}</option>
 					@endif
-
-
-    
-				    @foreach ($countries as $country)
+					
+					@foreach ($countries as $country)
 				      <option value="{{$country->id }}">{{$country->name}}</option>
 				    @endforeach
     			
     				</select>
  				</div>
 
-
+</div></div>
 
 
 
