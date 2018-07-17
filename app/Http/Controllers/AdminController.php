@@ -201,8 +201,8 @@ class AdminController extends Controller
         
 
     //dd($id);    
-        $link = Link::updateOrCreate(['description' => $request->input('link_description')],
-            ['event_id' => $id, 'link'=>$link, 'description'=>$request->input('link_description')]);
+        $link = Link::updateOrCreate(['description' => $request->input('link_description'), 'event_id' => $id ],
+            ['link'=>$link, 'description'=>$request->input('link_description')]);
         $event = Event::find($id);
         $links = Link::where('event_id', '=', $id)->get();
         
