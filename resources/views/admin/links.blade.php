@@ -12,9 +12,13 @@
 
 <div class="container">
   <div class="row">
+
+<div class="col-12 mt-4">
+<a href="{{ route('show', ['event_id' => $event->id])}}" class="btn btn-outline-warning btn-sm">Back</a>
+</div>
     <div class="col-md-8 mt-4">
 
-
+    
       <table class="table table-hover mb-4">
                 <thead>
                     <tr>
@@ -57,7 +61,7 @@
 
 
 
-    <div class="col-md-4  mt-4">
+    <div class="col-md-4">
 
 
     <form data-parsley-validate method="post" action="{{route('linkstore', ['id' => $event->id])}}">
