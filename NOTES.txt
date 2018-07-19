@@ -44,3 +44,9 @@ https://packagist.org/packages/filp/whoops
 
 при проблемах с сидами
 	composer dump-autoload
+
+
+запрашивать
+	URL of the Organizers Facebook Page *
+	URL of Facebook Festival Event Page *
+	URL of main organizers Facebook Profile Page *
