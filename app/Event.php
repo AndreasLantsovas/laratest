@@ -11,12 +11,27 @@ class Event extends Model
 	//public $timestamps = false;
 
 //* Accssesers
+	
+	public function getStartDateAttribute($value){
+        return date ('j/m/Y',  strtotime($value));
+    }
 
-	// public function getStartDateAttribute($value){
- //        return date ('j F Y',  strtotime($value));
- //    }
+	public function getEndDateAttribute($value){
+        return date ('j/m/Y',  strtotime($value));
+    }
+
+//* Mutators
+	public function setEndDateAttribute($value){
+        return date ('d-m-Y',  strtotime($value));
+    }
+	public function setStartDateAttribute($value){
+        return date ('j/m/Y',  strtotime($value));
+    }
 
 
+
+
+//* 
 	public function getRouteKeyName(){
 		return 'alias';
 	}
@@ -29,17 +44,21 @@ class Event extends Model
     }
 
 
-    public function country (){
+    public function country(){
 
     	return $this->belongsTo('App\Country');
 
     }
 
-    public function link (){
+    public function link(){
 
-    	return $this->belongsTo('App\Link');
+    	return $this->hasMany('App\Link');
 
     }    
 
+    public function location(){
 
+    	return $this->hasOne('App\Location');
+
+    }    
 }

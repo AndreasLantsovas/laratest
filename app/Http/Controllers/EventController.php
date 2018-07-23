@@ -7,6 +7,7 @@ use DB;
 use App\Event;
 use App\Country;
 use App\Link;
+use App\Location;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Mapper;
@@ -46,7 +47,7 @@ class EventController extends Controller
  */
     public function index(){
 
-        $countries = Country::all();
+       // $countries = Country::all();
     	$events = Event::published()->get();
         $menuCountries = $this->menuCountries;
 
@@ -59,26 +60,39 @@ class EventController extends Controller
  */
     public function show(Event $event){
 
-        // $x = $event->published()->get();
-        // dd($x);
-
         //список стран в меню
         $menuCountries = $this->menuCountries;
 
-        $links = Link::where('event_id', '=', $event->id)->get();
+        $links = $event->link;
 
-        //dd($event->id);
-   
- Mapper::map(41.5830591, 28.1409683, ['zoom' => 11, 'markers' => ['title' => 'My Location', 'animation' => 'DROP']]);
 
- 
+        //$location = Location::where('event_id', '=', $event->id)->get();
 
-		return view('events.show', compact('event','menuCountries', 'links'));
-		//dd($request);
+
+        if (!$event->location) {
+               $map ='have not location';
+        }
+
+        else{
+        
+            
+            $map = Mapper::map($event->location->lat, $event->location->lng, ['zoom' => 12, 'markers' => ['title' => 'My Location', 'animation' => 'DROP']])->render();
+        }
+
+       //dd($event->link);
+
+        
+        return view('events.show', compact('event','menuCountries', 'links', 'map'));
+
     }
 
+
+
+
+
+
 /**
- * test
+ * Показывать все мероприятия для конкретной страны
  */
     public function CountryEvents(Country $country){
 
@@ -89,8 +103,6 @@ class EventController extends Controller
         $events = Event::where('country_id', '=', $country->id)->published()->get();
         
         return view('index', compact('events', 'country','menuCountries'));
-
-//
     }
 
 

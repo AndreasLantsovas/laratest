@@ -34,7 +34,7 @@
           <div class="card mb-4">
             <div class="card-body">
               <h3 class="card-title">{{$event->name}}</h2>
-              <h6>{{$event->country->name}} | {{ date ('j F',  strtotime($event->start_date)) }} - {{ date ('j F',  strtotime($event->end_date)) }}
+              <h6>{{$event->country->name}} | {{ $event->start_date }} - {{ $event->end_date }}
 
               <hr>
 

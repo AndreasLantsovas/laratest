@@ -4,18 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Link extends Model
+class Location extends Model
 {
-
-
-
-	   protected $fillable = [
-        'event_id', 'link', 'description'
-    ];
-
-
-
-    //A links can has many events
     public function event (){
 
     	return $this->belongsTo('App\Event');
