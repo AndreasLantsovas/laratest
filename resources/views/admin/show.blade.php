@@ -18,19 +18,35 @@
 		        <p>{{$event->details}}</p>
 			</div>
 
-		@foreach ($links as $link)
+			@foreach ($links as $link)
 
-			@if ($link->description == 'video')
-		        	<div class="embed-responsive embed-responsive-16by9">
-		  				<iframe class="embed-responsive-item" src="{{$link->link}}" allowfullscreen></iframe>
-					</div>                
-				@else
-			                                  
-			@endif
-					
-		@endforeach
+				@if ($link->description == 'video')
+			        	<div class="embed-responsive embed-responsive-16by9">
+			  				<iframe class="embed-responsive-item" src="{{$link->link}}" allowfullscreen></iframe>
+						</div>                
+					@else
+				                                  
+				@endif
+						
+			@endforeach
+
+
+<!-- Location map -->
+				<div class="mt-4" style="width:100%; height: 350px;">
+
+					@if (empty($map)) 
+					        none
+					    @else
+							{!! $map !!}     
+					@endif
+				    
+				</div>
+<!-- Location map end -->
+
+
 		</div>
 
+<!-- Side Bar -->
 		<div class="col-md-4">
 			<div class="card">
 			  
@@ -74,10 +90,32 @@
 							<dd><a href="{{$link->link}}" target="_blank">{{$link->description}}</a></dd>
 						</dl>
 					@endforeach
+					<hr>
+					<a href="{{URL::action('AdminController@links', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
 				</div>
-				<a href="{{URL::action('AdminController@test', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
+			</div>
+
+
+
+<!-- Location -->
+			<div class="card mt-4">
+				<div class="card-header">
+					Location 
+
+				</div>
+
+
+
+				<div class="card-body">
+					<a href="{{URL::action('AdminController@location', $event->id)}}" class="btn btn-primary btn-sm">Add link</a>
+				</div>
 
 			</div>
+
+
+
+
+
 
 
 @section ('links')
@@ -96,7 +134,6 @@
 			</div>
 
 @endsection
-
 
 
 

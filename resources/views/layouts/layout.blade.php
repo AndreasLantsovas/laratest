@@ -39,7 +39,13 @@
   </div>
 </div>
 
-    
+<footer class="footer bg-dark" >
+  <div class="container" >
+    <div class="row " style="height: 100px;">
+      <span class="text-muted mt-4">FOOTER CONTENT HERE.</span>
+    </div>
+  </div>
+</footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

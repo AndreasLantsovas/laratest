@@ -116,18 +116,6 @@ class EventController extends Controller
 
         Mapper::map(41.5830591, 28.1409683, ['zoom' => 11, 'markers' => ['title' => 'My Location', 'animation' => 'DROP']]);
 
-// Map
-// Mapper::map(53.3, -1.4, ['zoom' => 10, 'center' => false, 'markers' => ['title' => 'My Locationh', 'animation' => 'DROP']]);
-// // Information window
-// Mapper::informationWindow(53.4, -1.5, 'Content1');
-// Mapper::informationWindow(52.4, -1.0, 'Content2');
-// Mapper::informationWindow(51.4, -0.5, 'Content3');
-//Mapper::marker(53.381128999999990000, -1.470085000000040000);
-
-        // Mapper::map(53.381128999999990000, -1.470085000000040000);
-
-       //  Mapper::marker(41.5830591, 28.1409683);
-
 
     return view('map');
 

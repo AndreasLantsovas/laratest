@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Event;
 use App\Country;
 use App\Link;
+use App\Location;
+use Mapper;
 
 class AdminController extends Controller
 {
@@ -109,7 +111,6 @@ class AdminController extends Controller
         $countries = Country::all();
         $events = Event::find($id);
 
- //       dd($events);
         return view('edit',compact('events', 'countries'));
 
      }
@@ -150,9 +151,16 @@ class AdminController extends Controller
 
         $links = Link::where('event_id', '=', $id)->get();
 
-        //dd($links);
+        if (!$event->location) {
+               $map ='have not location';
+        }
 
-        return view('admin.show', compact('event', 'links'));
+        else{
+
+            $map = Mapper::map($event->location->lat, $event->location->lng, ['zoom' => 12, 'markers' => ['title' => 'My Location', 'animation' => 'DROP']])->render();
+        }
+
+        return view('admin.show', compact('event', 'links', 'map'));
         //dd($request);
     }
 
@@ -169,17 +177,13 @@ class AdminController extends Controller
 
 
 /**
- * TEST FUNCTION
+ *  
  */
 
-    public function test($id){
+    public function links($id){
         //dd($id);
         $event = Event::find($id);
-
         $links = Link::where('event_id', '=', $id)->get();
-
-        //dd($links);
-
         return view('admin.links', compact('event', 'links'));
     }
 
@@ -198,9 +202,7 @@ class AdminController extends Controller
 
                 $link = $request->input('link');
             }
-        
-
-    //dd($id);    
+   
         $link = Link::updateOrCreate(['description' => $request->input('link_description'), 'event_id' => $id ],
             ['link'=>$link, 'description'=>$request->input('link_description')]);
         $event = Event::find($id);
@@ -226,6 +228,41 @@ class AdminController extends Controller
         //return view('admin.links', compact('event', 'links'));
     }
 
+/**
+ * Локация
+ */
+    public function location($id){
+        
+        $event = Event::find($id);
+      //  dd($event->location->formatted_address);
+
+        if (!$event->location) {
+               $map ='have not location';
+        }
+
+        else{
+
+            $map = Mapper::map($event->location->lat, $event->location->lng, ['zoom' => 12, 'markers' => ['title' => 'My Location', 'animation' => 'DROP']])->render();
+        }
+
+
+        return view('admin.location', compact('map', 'event'));
+    }
+
+
+
+    public function location_store (Request $request, $id){
+      //dd($id);
+
+       $location = Location::updateOrCreate(['event_id' => $id ],
+            ['lat'=>$request->input('lat'), 'lng'=>$request->input('lng'), 'formatted_address'=>'No']);
+
+    return redirect()->back();   
+        
+        
+
+       echo "string";
+    }
 
 
 }

@@ -43,9 +43,11 @@ Route::get('admin/{event}', 'AdminController@Show')->name('show');
 Route::get('admin/{event}/edit', 'AdminController@edit')->name('event_edit');
 
 
-//working with inks in post
-
-Route::get('admin/{event}/link/', 'AdminController@test')->name('links');
+//working with links in post
+Route::get('admin/{event}/link/', 'AdminController@links')->name('links');
 Route::post('admin/{event}/link/store', 'AdminController@link_store')->name('linkstore');
 Route::get('admin/{event}/link/delete/{id}', 'AdminController@link_delete')->name('link_delete');
 
+//working with location in post
+Route::get('admin/{event}/location/', 'AdminController@location')->name('location');
+Route::post('admin/{event}/location/store', 'AdminController@location_store')->name('location_store');
