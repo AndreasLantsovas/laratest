@@ -252,10 +252,22 @@ class AdminController extends Controller
 
 
     public function location_store (Request $request, $id){
-      //dd($id);
+      
 
-       $location = Location::updateOrCreate(['event_id' => $id ],
-            ['lat'=>$request->input('lat'), 'lng'=>$request->input('lng'), 'formatted_address'=>'No']);
+    //Получаем координаты локации по адресу
+        $address = $request->input('address');
+        $API_KEY='AIzaSyBwkYlVJRuB5-KKbyMhvW2EACdB1kco0zo';
+        $address = str_replace(' ', '%20' , $address);
+        $mapUrl = "https://maps.google.com/maps/api/geocode/json?address=".$address."&key=".$API_KEY;
+        $result = json_decode(file_get_contents($mapUrl), true);
+
+        $data['lat'] =  $result['results'][0]['geometry']['location']['lat'];
+        $data['lng'] =  $result['results'][0]['geometry']['location']['lng'];
+        $data['formatted_address'] =  $result['results'][0]['formatted_address']; 
+//dd($data);
+
+        $location = Location::updateOrCreate(['event_id' => $id ],
+           ['lat'=>$data['lat'], 'lng'=>$data['lng'], 'formatted_address'=>$data['formatted_address']]);
 
     return redirect()->back();   
         

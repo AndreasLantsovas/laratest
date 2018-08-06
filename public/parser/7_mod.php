@@ -108,19 +108,19 @@ $result=[];
 			if($pokemon_row->length > 0){
 				foreach($pokemon_row as $row){
 
-					$test['address'] = $test['address'].$row->nodeValue.' ';
+					$test['address-2'] = $row->nodeValue.' ';
 				}
 			}
 
-			// $pokemon_row = $pokemon_xpath->query('//div[@class="entry"]/p');
+			$pokemon_row = $pokemon_xpath->query('//div[@class="entry"]/p');
 			
-			// if($pokemon_row->length > 0){
-			// 	foreach($pokemon_row as $row){
+			if($pokemon_row->length > 0){
+				foreach($pokemon_row as $row){
 
-			// 		//array_push($test, $row->nodeValue);
-			// 		$test['description'] = $test['description'].$row->nodeValue.' ';
-			// 	}
-			// }
+					//array_push($test, $row->nodeValue);
+					$test['description'] = $test['description'].$row->nodeValue.' ';
+				}
+			}
 
 		}
 
